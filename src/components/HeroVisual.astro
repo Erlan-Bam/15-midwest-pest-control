@@ -1,0 +1,181 @@
+---
+import type { Industry } from '../data/prospect';
+
+type Props = {
+  industry: Industry;
+  businessName: string;
+  visualVariant: string;
+};
+
+const { industry, businessName, visualVariant } = Astro.props;
+---
+
+<figure class={`hero-visual ${industry} variant-${visualVariant}`} aria-label={`Owner-photo placeholder for ${businessName}`}>
+  <div class="visual-glow" aria-hidden="true"></div>
+
+  {industry === 'detailing' && (
+    <svg class="visual-art" viewBox="0 0 720 520" role="img" aria-labelledby={`car-${visualVariant}`}>
+      <title id={`car-${visualVariant}`}>Stylized vehicle detailing concept illustration</title>
+      <defs>
+        <linearGradient id={`carBody-${visualVariant}`} x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0" stop-color="#f8fafc" stop-opacity=".95" />
+          <stop offset=".55" stop-color="#94a3b8" stop-opacity=".82" />
+          <stop offset="1" stop-color="#334155" stop-opacity=".9" />
+        </linearGradient>
+        <linearGradient id={`glass-${visualVariant}`} x1="0" x2="1">
+          <stop offset="0" stop-color="#7dd3fc" stop-opacity=".75" />
+          <stop offset="1" stop-color="#0f172a" stop-opacity=".85" />
+        </linearGradient>
+      </defs>
+      <path d="M74 342 116 250c13-28 40-48 71-53l271-40c39-6 77 12 98 45l53 83 45 18c18 7 30 25 30 45v52H57v-27c0-15 6-25 17-31Z" fill={`url(#carBody-${visualVariant})`} />
+      <path d="m189 242 67-16 37-5 150-22c24-4 48 8 61 29l31 49H174l15-35Z" fill={`url(#glass-${visualVariant})`} />
+      <path d="M286 222v55M450 199l30 78" stroke="#dbeafe" stroke-width="8" stroke-linecap="round" opacity=".8" />
+      <path d="M92 332h535" stroke="var(--theme-accent)" stroke-width="8" stroke-linecap="round" opacity=".9" />
+      <circle cx="185" cy="397" r="58" fill="#111827" stroke="#64748b" stroke-width="14" />
+      <circle cx="185" cy="397" r="19" fill="var(--theme-accent)" />
+      <circle cx="559" cy="397" r="58" fill="#111827" stroke="#64748b" stroke-width="14" />
+      <circle cx="559" cy="397" r="19" fill="var(--theme-accent)" />
+      <path d="M94 300h68M575 299h55" stroke="#fff" stroke-width="16" stroke-linecap="round" opacity=".8" />
+      <path d="M603 120c16 33 42 55 76 68M577 87c9 20 22 36 41 49M123 122c-11 31-31 56-61 75" stroke="var(--theme-accent)" stroke-width="7" stroke-linecap="round" opacity=".7" />
+      <circle cx="93" cy="115" r="8" fill="var(--theme-accent)" />
+      <circle cx="646" cy="93" r="10" fill="var(--theme-accent)" />
+    </svg>
+  )}
+
+  {industry === 'pest' && (
+    <svg class="visual-art" viewBox="0 0 720 520" role="img" aria-labelledby={`pest-${visualVariant}`}>
+      <title id={`pest-${visualVariant}`}>Stylized home inspection concept illustration</title>
+      <defs>
+        <linearGradient id={`home-${visualVariant}`} x1="0" x2="0" y1="0" y2="1">
+          <stop offset="0" stop-color="#fff" />
+          <stop offset="1" stop-color="#e7e5e4" />
+        </linearGradient>
+      </defs>
+      <path d="m105 254 253-153 255 153v172H105V254Z" fill={`url(#home-${visualVariant})`} stroke="var(--theme-ink)" stroke-width="9" stroke-linejoin="round" />
+      <path d="M71 267 358 91l291 176" fill="none" stroke="var(--theme-accent)" stroke-width="21" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M188 296h115v130H188zM415 283h105v90H415z" fill="var(--theme-accent-soft)" stroke="var(--theme-ink)" stroke-width="7" />
+      <path d="M420 328h95M467 288v80" stroke="var(--theme-ink)" stroke-width="5" opacity=".7" />
+      <circle cx="524" cy="354" r="92" fill="var(--theme-surface)" fill-opacity=".92" stroke="var(--theme-accent)" stroke-width="12" />
+      <path d="m591 418 67 67" stroke="var(--theme-accent)" stroke-width="26" stroke-linecap="round" />
+      <path d="M486 345c18-25 54-24 72-1M492 374c13 16 48 17 61 0" fill="none" stroke="var(--theme-ink)" stroke-width="9" stroke-linecap="round" />
+      <circle cx="500" cy="335" r="7" fill="var(--theme-accent)" />
+      <circle cx="548" cy="335" r="7" fill="var(--theme-accent)" />
+      <path d="M146 195h73M134 222h48" stroke="var(--theme-accent)" stroke-width="8" stroke-linecap="round" opacity=".65" />
+    </svg>
+  )}
+
+  {industry === 'cleaning' && (
+    <svg class="visual-art" viewBox="0 0 720 520" role="img" aria-labelledby={`clean-${visualVariant}`}>
+      <title id={`clean-${visualVariant}`}>Stylized bright-room cleaning concept illustration</title>
+      <defs>
+        <linearGradient id={`room-${visualVariant}`} x1="0" x2="1" y1="0" y2="1">
+          <stop offset="0" stop-color="#fff" />
+          <stop offset="1" stop-color="var(--theme-accent-soft)" />
+        </linearGradient>
+      </defs>
+      <rect x="72" y="75" width="576" height="370" rx="32" fill={`url(#room-${visualVariant})`} stroke="var(--theme-ink)" stroke-width="7" />
+      <rect x="122" y="124" width="210" height="146" rx="16" fill="#fff" stroke="var(--theme-accent)" stroke-width="8" />
+      <path d="M227 128v138M126 198h202" stroke="var(--theme-accent)" stroke-width="6" opacity=".7" />
+      <path d="M385 296h184v99H385z" fill="#fff" stroke="var(--theme-ink)" stroke-width="7" />
+      <path d="M410 296v-46c0-28 22-50 50-50h29c30 0 54 24 54 54v42" fill="none" stroke="var(--theme-ink)" stroke-width="13" />
+      <path d="M134 355h175M154 322h132" stroke="var(--theme-accent)" stroke-width="12" stroke-linecap="round" />
+      <path d="M351 132c9 38 29 59 67 67-38 9-58 30-67 67-9-37-29-58-67-67 38-8 58-29 67-67ZM562 105c5 23 18 36 41 41-23 5-36 18-41 41-5-23-18-36-41-41 23-5 36-18 41-41Z" fill="var(--theme-accent)" />
+      <circle cx="100" cy="108" r="11" fill="var(--theme-accent)" opacity=".6" />
+      <circle cx="617" cy="412" r="12" fill="var(--theme-accent)" opacity=".7" />
+    </svg>
+  )}
+
+  <figcaption>
+    <span>Concept imagery</span>
+    Replace with owner-approved project photography
+  </figcaption>
+</figure>
+
+<style>
+  .hero-visual {
+    position: relative;
+    isolation: isolate;
+    aspect-ratio: 1.16 / 1;
+    overflow: hidden;
+    border: 1px solid var(--theme-border);
+    border-radius: clamp(1.5rem, 4vw, 2.5rem);
+    background:
+      linear-gradient(145deg, color-mix(in srgb, var(--theme-surface) 90%, white), color-mix(in srgb, var(--theme-surface) 86%, var(--theme-accent))),
+      var(--theme-surface);
+    box-shadow: var(--theme-hero-shadow);
+  }
+
+  .hero-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+      linear-gradient(color-mix(in srgb, var(--theme-accent) 10%, transparent) 1px, transparent 1px),
+      linear-gradient(90deg, color-mix(in srgb, var(--theme-accent) 10%, transparent) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(to bottom, black, transparent 90%);
+  }
+
+  .visual-glow {
+    position: absolute;
+    width: 55%;
+    aspect-ratio: 1;
+    right: -12%;
+    top: -18%;
+    border-radius: 999px;
+    background: var(--theme-accent);
+    opacity: .18;
+    filter: blur(45px);
+  }
+
+  .visual-art {
+    width: 100%;
+    height: 100%;
+    padding: 6%;
+    filter: drop-shadow(0 24px 30px rgba(15,23,42,.2));
+    animation: art-in 700ms cubic-bezier(.16,1,.3,1) both;
+  }
+
+  figcaption {
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .8rem;
+    border: 1px solid color-mix(in srgb, var(--theme-border) 70%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--theme-surface) 82%, transparent);
+    color: var(--theme-muted-text);
+    padding: .65rem .8rem;
+    font-size: .68rem;
+    line-height: 1.2;
+    backdrop-filter: blur(14px);
+  }
+
+  figcaption span {
+    flex: 0 0 auto;
+    border-radius: 999px;
+    background: var(--theme-accent);
+    color: var(--theme-accent-ink);
+    padding: .35rem .55rem;
+    font-weight: 850;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+  }
+
+  @keyframes art-in {
+    from { opacity: 0; transform: translateY(14px) scale(.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @media (max-width: 640px) {
+    figcaption {
+      border-radius: 1rem;
+      font-size: .62rem;
+    }
+  }
+</style>

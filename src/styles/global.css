@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
+  --font-display: "Sora", "Avenir Next", "Segoe UI", sans-serif;
+}
+
+:root {
+  color-scheme: light;
+  font-family: var(--font-sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #f8fafc;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button,
+a,
+input,
+select,
+textarea,
+summary {
+  touch-action: manipulation;
+}
+
+button,
+a,
+summary {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid var(--theme-accent, #2563eb);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--theme-accent, #2563eb) 24%, white);
+  color: #0f172a;
+}
+
+.sr-only-focusable {
+  position: fixed;
+  left: 1rem;
+  top: -4rem;
+  z-index: 2000;
+  border-radius: 999px;
+  background: #fff;
+  color: #0f172a;
+  padding: .75rem 1rem;
+  font-weight: 800;
+  transition: top 180ms ease;
+}
+
+.sr-only-focusable:focus {
+  top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

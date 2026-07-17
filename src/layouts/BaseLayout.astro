@@ -1,0 +1,48 @@
+---
+import '../styles/global.css';
+
+type Props = {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  jsonLd?: Record<string, unknown>;
+  bodyClass?: string;
+};
+
+const {
+  title,
+  description,
+  canonicalPath = '/',
+  jsonLd,
+  bodyClass = '',
+} = Astro.props;
+
+const canonical = new URL(canonicalPath, Astro.site ?? Astro.url.origin);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+    <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL('/og-placeholder.svg', canonical)} />
+    <meta property="og:image:alt" content="Unofficial website concept placeholder" />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>{title}</title>
+    {jsonLd && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body class={bodyClass}>
+    <a href="#main-content" class="sr-only-focusable">Skip to main content</a>
+    <slot />
+  </body>
+</html>
