@@ -1,5 +1,5 @@
 .preview-shell {
-  --section-space: clamp(5rem, 10vw, 9rem);
+  --section-space: clamp(4rem, 7vw, 6.75rem);
   min-height: 100vh;
   padding-top: 36px;
   background: var(--theme-bg);
@@ -84,7 +84,7 @@
 .preview-shell .hero-section {
   position: relative;
   overflow: hidden;
-  padding: clamp(4rem, 9vw, 8rem) 0 clamp(3rem, 7vw, 6rem);
+  padding: clamp(3rem, 5vw, 4.5rem) 0 clamp(2.75rem, 5vw, 4.5rem);
 }
 
 .preview-shell .hero-section::before,
@@ -123,7 +123,7 @@
   display: grid;
   grid-template-columns: minmax(0, 1.02fr) minmax(380px, .98fr);
   align-items: center;
-  gap: clamp(2.5rem, 6vw, 6rem);
+  gap: clamp(2.25rem, 4.5vw, 4.5rem);
 }
 
 .preview-shell .eyebrow,
@@ -160,32 +160,32 @@
   margin: 0;
   color: var(--theme-ink);
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 7.7vw, 7.2rem);
+  font-size: clamp(3rem, 5vw, 4.85rem);
   font-weight: 800;
-  line-height: .88;
-  letter-spacing: -.075em;
+  line-height: .92;
+  letter-spacing: -.065em;
   text-wrap: balance;
 }
 
 .preview-shell.industry-pest .hero-copy h1,
 .preview-shell.industry-cleaning .hero-copy h1 {
-  font-size: clamp(3rem, 6.8vw, 6.6rem);
-  line-height: .92;
+  font-size: clamp(3rem, 4.6vw, 4.5rem);
+  line-height: .94;
 }
 
 .preview-shell .hero-description {
   max-width: 42rem;
-  margin: 1.65rem 0 0;
+  margin: 1.25rem 0 0;
   color: var(--theme-muted-text);
-  font-size: clamp(1.02rem, 1.8vw, 1.28rem);
-  line-height: 1.68;
+  font-size: clamp(1rem, 1.4vw, 1.14rem);
+  line-height: 1.62;
 }
 
 .preview-shell .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: .75rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .preview-shell .button {
@@ -232,7 +232,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: .65rem 1rem;
-  margin: 1.65rem 0 0;
+  margin: 1.25rem 0 0;
   padding: 0;
   color: var(--theme-muted-text);
   list-style: none;
@@ -613,9 +613,9 @@
   margin: 0;
   color: var(--theme-ink);
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 5vw, 4.8rem);
-  line-height: .95;
-  letter-spacing: -.06em;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  line-height: .98;
+  letter-spacing: -.052em;
 }
 
 .preview-shell .proof-caption {
@@ -690,71 +690,6 @@
   color: var(--theme-accent-strong);
 }
 
-.preview-shell .review-section {
-  border-block: 1px solid var(--theme-border);
-  background: var(--theme-card);
-}
-
-.preview-shell .review-layout {
-  display: grid;
-  grid-template-columns: .78fr 1.22fr;
-  align-items: center;
-  gap: clamp(3rem, 8vw, 8rem);
-}
-
-.preview-shell .review-score {
-  position: relative;
-  isolation: isolate;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  aspect-ratio: 1 / .9;
-  overflow: hidden;
-  border: 1px solid var(--theme-border);
-  border-radius: 2rem;
-  background: var(--theme-elevated);
-  padding: clamp(1.5rem, 4vw, 2.5rem);
-}
-
-.preview-shell .review-score::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  width: 70%;
-  aspect-ratio: 1;
-  right: -10%;
-  top: -20%;
-  border-radius: 999px;
-  background: var(--theme-accent);
-  opacity: .16;
-  filter: blur(15px);
-}
-
-.preview-shell .review-score > span {
-  color: var(--theme-ink);
-  font-family: var(--font-display);
-  font-size: clamp(5rem, 11vw, 9rem);
-  font-weight: 850;
-  line-height: .75;
-  letter-spacing: -.09em;
-}
-
-.preview-shell .review-score .stars {
-  margin-top: 1.4rem;
-}
-
-.preview-shell .review-score strong {
-  margin-top: .85rem;
-  font-size: .9rem;
-}
-
-.preview-shell .review-score small {
-  margin-top: .35rem;
-  color: var(--theme-muted-text);
-  font-size: .64rem;
-}
-
-.preview-shell .review-copy h2,
 .preview-shell .area-copy h2,
 .preview-shell .quote-copy h2,
 .preview-shell .research-layout h2 {
@@ -762,12 +697,11 @@
   margin: 0;
   color: var(--theme-ink);
   font-family: var(--font-display);
-  font-size: clamp(2.2rem, 5.5vw, 5rem);
-  line-height: .96;
-  letter-spacing: -.06em;
+  font-size: clamp(2rem, 4vw, 3.75rem);
+  line-height: .98;
+  letter-spacing: -.052em;
 }
 
-.preview-shell .review-copy > p:not(.eyebrow-simple),
 .preview-shell .area-copy > p:not(.eyebrow-simple),
 .preview-shell .quote-copy > p:not(.eyebrow-simple),
 .preview-shell .research-layout > div > p:not(.eyebrow-simple) {
@@ -1428,7 +1362,6 @@
 @media (max-width: 820px) {
   .preview-shell .service-grid,
   .preview-shell .process-layout,
-  .preview-shell .review-layout,
   .preview-shell .area-layout,
   .preview-shell .faq-layout,
   .preview-shell .quote-layout {
@@ -1442,10 +1375,6 @@
   .preview-shell .process-copy,
   .preview-shell .quote-copy {
     position: static;
-  }
-
-  .preview-shell .review-score {
-    aspect-ratio: 1.6 / 1;
   }
 
   .preview-shell .area-map {
@@ -1488,13 +1417,15 @@
   }
 
   .preview-shell .hero-section {
-    padding-top: 3.5rem;
+    padding-top: 2.5rem;
   }
 
   .preview-shell .hero-copy h1,
   .preview-shell.industry-pest .hero-copy h1,
   .preview-shell.industry-cleaning .hero-copy h1 {
-    font-size: clamp(3rem, 15vw, 5rem);
+    font-size: clamp(2.45rem, 11vw, 3.25rem);
+    line-height: .96;
+    letter-spacing: -.055em;
   }
 
   .preview-shell .hero-actions {
@@ -1539,10 +1470,6 @@
   .preview-shell .proof-tabs button:hover,
   .preview-shell .proof-tabs button.is-active {
     transform: translateY(-2px);
-  }
-
-  .preview-shell .review-score {
-    aspect-ratio: 1.2 / 1;
   }
 
   .preview-shell .area-map {

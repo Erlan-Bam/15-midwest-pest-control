@@ -12,6 +12,13 @@ export type Source = {
   supports: string;
 };
 
+export type PublicReview = {
+  reviewerName: string;
+  rating: number;
+  excerpt?: string;
+  relativeDate: string;
+};
+
 export type Prospect = {
   slug: string;
   businessName: string;
@@ -34,10 +41,13 @@ export type Prospect = {
   heroDescription: string;
   primaryCta: string;
   review: {
+    heading: string;
     rating: number;
     count: number;
     status: 'verified-directory' | 'research-snapshot';
     sourceLabel: string;
+    sourceUrl: string;
+    reviews: PublicReview[];
   };
   services: Service[];
   process: Array<{ title: string; description: string }>;
@@ -69,10 +79,32 @@ export const prospect: Prospect = {
   "heroDescription": "A trust-led inspection request that collects the property, issue, and ZIP code before the business recommends next steps.",
   "primaryCta": "Request an inspection",
   "review": {
+    "heading": "What Tulsa customers say about Midwest.",
     "rating": 4.5,
     "count": 396,
     "status": "research-snapshot",
-    "sourceLabel": "Google profile snapshot supplied for this concept"
+    "sourceLabel": "Google Maps",
+    "sourceUrl": "https://www.google.com/maps/search/?api=1&query=Midwest%20Pest%20Control%20Tulsa%20OK%20918%20417%201137",
+    "reviews": [
+      {
+        "reviewerName": "Shelley Cadamy",
+        "rating": 5,
+        "excerpt": "Everyone is professional",
+        "relativeDate": "4 years ago"
+      },
+      {
+        "reviewerName": "Sara Ostin",
+        "rating": 5,
+        "excerpt": "they are very affordable.",
+        "relativeDate": "6 years ago"
+      },
+      {
+        "reviewerName": "Nick Burn",
+        "rating": 5,
+        "excerpt": "very professional and thorough.",
+        "relativeDate": "4 years ago"
+      }
+    ]
   },
   "services": [
     {
@@ -124,19 +156,16 @@ export const prospect: Prospect = {
   ],
   "faq": [
     {
-      "question": "Which pests are treated?",
-      "answer": "The exact residential, commercial, termite, rodent, or wildlife service list requires owner confirmation.",
-      "confirmationRequired": true
+      "question": "Which problems can I ask about?",
+      "answer": "Midwest handles residential and commercial pest-control requests; describe the pest and where you are seeing it."
     },
     {
-      "question": "How quickly can an inspection happen?",
-      "answer": "No response-time promise was verified. The approved site should display only the business’s actual scheduling policy.",
-      "confirmationRequired": true
+      "question": "Can I ask about recurring service?",
+      "answer": "Yes. Public reviews mention ongoing and quarterly service; the office can explain current plan options."
     },
     {
-      "question": "Are recurring plans available?",
-      "answer": "A public review source refers to quarterly service, but current plan terms should be confirmed directly.",
-      "confirmationRequired": true
+      "question": "What happens first?",
+      "answer": "The team reviews the issue and property, then recommends the treatment and schedule."
     }
   ],
   "websiteSituation": "The listing had no current website in the supplied research; an older domain was reported as parked.",

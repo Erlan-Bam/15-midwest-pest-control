@@ -1,18 +1,17 @@
 ---
 type Props = {
-  monogram: string;
   name: string;
   city: string;
 };
 
-const { monogram, name, city } = Astro.props;
+const { name, city } = Astro.props;
 ---
 
 <a class="brand" href="#top" aria-label={`${name} concept home`}>
-  <span class="brand-mark" aria-hidden="true">{monogram}</span>
+  <img class="brand-mark" src="/yayzo-mark.png" width="44" height="44" alt="" />
   <span class="brand-copy">
     <strong>{name}</strong>
-    <small>{city} · website concept</small>
+    <small>{city} · concept by yayzo.dev</small>
   </span>
 </a>
 
@@ -27,18 +26,12 @@ const { monogram, name, city } = Astro.props;
   }
 
   .brand-mark {
-    display: grid;
-    place-items: center;
     width: 44px;
     height: 44px;
     border: 1px solid color-mix(in srgb, var(--theme-accent) 58%, transparent);
     border-radius: 13px;
-    background: var(--theme-accent);
-    color: var(--theme-accent-ink, #111827);
-    font-family: var(--font-display);
-    font-size: .76rem;
-    font-weight: 900;
-    letter-spacing: -.02em;
+    background: #ffffff;
+    object-fit: cover;
     box-shadow: 0 12px 30px color-mix(in srgb, var(--theme-accent) 22%, transparent);
   }
 

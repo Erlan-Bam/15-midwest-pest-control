@@ -20,6 +20,7 @@ import HeroVisual from './HeroVisual.astro';
 import PreviewBanner from './PreviewBanner.astro';
 import ProofGallery from './ProofGallery';
 import QuoteForm from './QuoteForm';
+import ReviewCarousel from './ReviewCarousel';
 import SectionHeading from './SectionHeading.astro';
 import StickyMobileCTA from './StickyMobileCTA.astro';
 
@@ -30,6 +31,7 @@ const darkAccent = ['#d02f42', '#0d9488', '#6d5bd0', '#e45f78', '#ff6b35'];
 const accentInk = darkAccent.includes(prospect.accent) ? '#ffffff' : '#101827';
 const isDark = prospect.industry === 'detailing';
 const reviewUrl =
+  prospect.review.sourceUrl ??
   prospect.sources.find((source) => source.label.includes('Google'))?.url ??
   prospect.sources[0].url;
 const serviceIcon = prospect.industry === 'detailing' ? CarFront : prospect.industry === 'pest' ? ShieldCheck : Sparkles;
@@ -46,6 +48,7 @@ const themeStyle = [
   `--theme-border:${isDark ? 'rgba(255,255,255,.14)' : 'rgba(15,23,42,.12)'}`,
   `--theme-card:${isDark ? 'rgba(255,255,255,.055)' : '#ffffff'}`,
   `--theme-elevated:${isDark ? '#18212f' : '#ffffff'}`,
+  `--theme-review-card:${isDark ? '#132235' : prospect.ink}`,
   `--theme-accent-strong:color-mix(in srgb, ${prospect.accent} 72%, ${prospect.ink})`,
   `--theme-hero-shadow:${isDark ? '0 34px 90px rgba(0,0,0,.42)' : '0 34px 90px rgba(15,23,42,.15)'}`,
 ].join(';');
@@ -59,7 +62,7 @@ const themeStyle = [
 
   <header class="site-header" id="top">
     <div class="container header-inner">
-      <BrandMark monogram={prospect.monogram} name={prospect.businessName} city={prospect.city} />
+      <BrandMark name={prospect.businessName} city={prospect.city} />
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="#services">Services</a>
         <a href="#process">Process</a>
@@ -118,8 +121,8 @@ const themeStyle = [
             <span class="stars" aria-label={`${prospect.review.rating} out of 5 stars`}>
               {Array.from({ length: 5 }).map((_, index) => <Star aria-hidden="true" size={14} fill={index < Math.round(prospect.review.rating) ? 'currentColor' : 'none'} />)}
             </span>
-            <strong>{prospect.review.count} reviews in research snapshot</strong>
-            <small>{prospect.review.sourceLabel} · confirm before launch</small>
+            <strong>{prospect.review.count} Google Maps reviews</strong>
+            <small>Public listing snapshot · July 17, 2026</small>
           </span>
           <ExternalLink aria-hidden="true" size={17} />
         </a>
@@ -195,28 +198,7 @@ const themeStyle = [
       </div>
     </section>
 
-    <section class="section review-section">
-      <div class="container review-layout">
-        <div class="review-score" aria-label={`${prospect.review.rating} rating snapshot from ${prospect.review.count} reviews`}>
-          <span>{prospect.review.rating.toFixed(1)}</span>
-          <div class="stars">
-            {Array.from({ length: 5 }).map((_, index) => <Star aria-hidden="true" size={20} fill={index < Math.round(prospect.review.rating) ? 'currentColor' : 'none'} />)}
-          </div>
-          <strong>{prospect.review.count} reviews</strong>
-          <small>Research snapshot · confirm before live use</small>
-        </div>
-        <div class="review-copy">
-          <p class="eyebrow-simple">Public review proof</p>
-          <h2>Use the real rating. Skip the made-up testimonial.</h2>
-          <p>
-            This concept shows only the quantitative snapshot supplied or found during research. It intentionally includes no invented customer quote, fake name, or copied review text.
-          </p>
-          <a class="button secondary" href={reviewUrl} target="_blank" rel="noreferrer">
-            Review the public listing <ExternalLink aria-hidden="true" size={18} />
-          </a>
-        </div>
-      </div>
-    </section>
+    <ReviewCarousel client:load review={prospect.review} />
 
     <section class="section area-section">
       <div class="container area-layout">
@@ -245,8 +227,8 @@ const themeStyle = [
       <div class="container faq-layout">
         <SectionHeading
           eyebrow="Frequently asked"
-          title="Useful answers, with the gaps left visible."
-          description="Unverified operational details are marked for owner confirmation rather than filled with plausible-sounding copy."
+          title="Quick answers before you call."
+          description="Short answers based on public business information, ready for the owner to refine before launch."
         />
         <FaqAccordion client:load items={prospect.faq} />
       </div>
@@ -315,8 +297,8 @@ const themeStyle = [
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
-        <BrandMark monogram={prospect.monogram} name={prospect.businessName} city={prospect.city} />
-        <p>Unofficial, noindex website concept. Not affiliated with or endorsed by the business.</p>
+        <BrandMark name={prospect.businessName} city={prospect.city} />
+        <p>Unofficial, noindex website concept by yayzo.dev. Not affiliated with or endorsed by the business.</p>
       </div>
       <div class="footer-links">
         <a href="#services">Services</a>
