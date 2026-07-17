@@ -12,4 +12,4 @@
 
 Local browser QA passed at desktop 1440 × 1000 and mobile 390 × 844: disclosure, title, H1, service cards, no-action form, canonical hostname, no combined-preview links, zero horizontal overflow, and FAQ structure were present. The exact disconnected form success state was exercised for the relevant reusable template family.
 
-Production browser QA: pending deployment.
+Production browser QA passed on July 17, 2026 at desktop 1440 × 1000 and mobile 390 × 844. The stable URL returned HTTP 200; title, H1, fixed disclosure, services, FAQ, canonical and Open Graph hostnames, noindex metadata/header, and zero horizontal overflow all passed. The obsolete `/previews/` path returned 404, the disconnected form displayed the exact not-sent success state, and no browser console errors were recorded.
